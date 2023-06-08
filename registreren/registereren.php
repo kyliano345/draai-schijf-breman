@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="CSS/index.css" />
   </head>
   <body>
-    <div class="background-image" style="background-image: url('background6.jpg')"></div>
+  
+  <div class="background-image" style="background-image: url('IMG/background6.jpg')"></div>
     <div class="login_form_container">
       <div class="login_form">
         <h2>Registreren</h2>
@@ -44,15 +45,24 @@
               autocomplete="off"
             />
           </div>
-        <div class="button_group" id="login_button">
-          <a>Submit</a>
-        </div>
+          <div class="input_group">
+            <i class="fa fa-unlock-alt"></i>
+            <input
+              type="text"
+              placeholder="Postcode"
+              class="input_text"
+              autocomplete="off"
+            />
+          </div>
+          <div id="login_button">
+  <input type="submit" value="Submit">
+</div>
         <div class="fotter">
         </div>
       </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="login.js"></script>
+    
+    <script src="registeren.js"></script>
   </body>
 </html>
