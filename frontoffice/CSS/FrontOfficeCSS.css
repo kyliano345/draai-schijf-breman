@@ -1,0 +1,506 @@
+/* */
+/* */
+/* ➕ Global ➕ */
+/* */
+/* */
+
+p {
+    color:white;
+    text-shadow: 1px 1px black;
+    cursor:default;
+}
+
+img , p{
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+/* */
+/* */
+/* ❌ Global ❌ */
+/* */
+/* */
+
+/* ........................................................ */
+/* ........................................................ */
+/* ........................................................ */
+/* ........................................................ */
+/* ........................................................ */
+
+/* */
+/* */
+/* ➕ Body ➕ */
+/* */
+/* */
+
+body {
+    background-color: black;
+    background-image: url(../assets/body.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:0px;
+    padding:0px;
+    transition: 1s;
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 10000px) {
+    body {
+        background-size: 100%;
+        background-position: 75% 0%;
+        transition: 1s;
+    }
+}
+@media only screen and (min-width: 900px) and (max-width: 1000px) {
+    body {
+        background-size: 125%;
+        background-position: 50% 0%;
+        transition: 1s;
+    }
+}
+@media only screen and (min-width: 750px) and (max-width: 900px) {
+    body {
+        background-size: 175%;
+        background-position: 75% 0%;
+        transition: 1s;
+    }
+}
+@media only screen and (min-width: 0px) and (max-width: 750px) {
+    body {
+        background-size: 225%;
+        background-position: 75% 0%;
+        transition: 1s;
+    }
+}
+
+/* */
+/* */
+/* ❌ Body ❌ */
+/* */
+/* */
+
+/* ........................................................ */
+/* ........................................................ */
+/* ........................................................ */
+/* ........................................................ */
+/* ........................................................ */
+
+/* */
+/* */
+/* ➕ Header ➕ */
+/* */
+/* */
+
+.HeaderSection {
+    width:100%;
+    height:5rem;
+}
+.HL1 {
+    background-color: rgb(72, 72, 72);
+    width:100%;
+    height:5.5rem;
+}
+.HL2 {
+    background-color: rgb(205, 205, 205);
+    width:100%;
+    height:5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.HB1, .HB2, .HB3 {
+    height:100%;
+}
+
+.HB1, .HB3 {
+    width:20%;
+}
+.HB2 {
+    width:60%;
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.HeaderSection img {
+    max-width: 50%;
+    max-height: 75%;
+}
+
+#loggeduser {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-top:0.5rem;
+}
+#loginincontent {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content:baseline;
+}
+#loginincontent #loggeduser {
+    margin-top:1rem;margin-bottom:0.25rem;
+    padding:0px;
+}
+#loginincontent #uitlogknop {
+    margin-bottom:1rem;margin-top:0.25rem;
+    padding:0px;
+}
+#uitlogknop {
+    border:1px solid black;
+    border-radius: 15%;
+    background-color: rgb(162, 162, 162);
+    transition: 0.5s;
+}
+#uitlogknop:hover {
+    cursor:pointer;
+    background-color: rgb(203, 203, 203);
+    transition: 0.5s;
+}
+#uitlogknop p {
+    margin:0.10rem 0.20rem;
+    color:white;
+    text-shadow: 1px 1px black;
+    cursor:pointer;
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 10000px) {
+    .HL1, .HL2 {
+        clip-path: polygon(
+                0 0,
+                100% 0,
+                100% 80%,
+                80% 100%,
+                20% 100%,
+                0 80%,
+                0 0
+            );
+        transition: 1s;
+    }
+}
+@media only screen and (min-width: 750px) and (max-width: 1000px) {
+    .HL1, .HL2 {
+        clip-path: polygon(
+                0 0,
+                100% 0,
+                100% 85%,
+                80% 100%,
+                20% 100%,
+                0 85%,
+                0 0
+            );
+        transition: 1s;
+    }
+}
+@media only screen and (min-width: 0px) and (max-width: 750px) {
+    .HL1, .HL2 {
+        clip-path: polygon(
+                0 0,
+                100% 0,
+                100% 90%,
+                80% 100%,
+                20% 100%,
+                0 90%,
+                0 0
+            );
+        transition: 1s;
+    }
+}
+
+/* */
+/* */
+/* ❌ Header ❌ */
+/* */
+/* */
+
+/* ........................................................ */
+/* ........................................................ */
+/* ........................................................ */
+/* ........................................................ */
+/* ........................................................ */
+
+/* */
+/* */
+/* ➕ Footer ➕ */
+/* */
+/* */
+
+.FooterSection {
+    position:fixed;
+    top:none;
+    right:none;
+    bottom:0%;
+    left:none;
+    min-width: 100%;
+}
+
+.FL1 {
+    background-color: rgb(72, 72, 72);
+    width:100%;
+    height:2rem;
+}
+.FL2 {
+    background-color: rgb(190, 190, 190);
+    width:100%;
+    height:1.75rem;
+    display: flex;
+    align-items: center;
+    position:absolute;
+    bottom:0%;
+}
+#footertext {
+    width:100%;
+    text-align: center;
+    padding:0px;
+    margin:0px;
+}
+
+/* */
+/* */
+/* ❌ Footer ❌ */
+/* */
+/* */
+
+/* ........................................................ */
+/* ........................................................ */
+/* ........................................................ */
+/* ........................................................ */
+/* ........................................................ */
+
+/* */
+/* */
+/* ➕ Content ➕ */
+/* */
+/* */
+
+.ContentSection {
+    /* background-color: rgba(0, 0, 255, 0.445); */
+    height:40rem;
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+.MaxContentArea {
+    /* background-color: rgba(255, 255, 255, 0.723); */
+    height:100%;
+    width:70%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:1rem;
+}
+
+.BeautyBox {
+    width:80%;
+    min-height:50%;height:fit-content;
+    background-color: rgb(214, 214, 214);
+    padding-top:0.5rem;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 10000px) {
+    .BeautyBox {
+        clip-path: polygon(
+                0 5%,
+                5% 0,
+                95% 0,
+                100% 5%,
+                100% 95%,
+                95% 100%,
+                5% 100%,
+                0 98%,
+                0 5%
+            );
+        transition: 1s;
+    }
+}
+@media only screen and (min-width: 750px) and (max-width: 1000px) {
+    .BeautyBox {
+        clip-path: polygon(
+                0 5%,
+                5% 0,
+                95% 0,
+                100% 5%,
+                100% 95%,
+                95% 100%,
+                5% 100%,
+                0 98%,
+                0 5%
+            );
+        transition: 1s;
+    }
+}
+@media only screen and (min-width: 0px) and (max-width: 750px) {
+    .BeautyBox {
+        clip-path: polygon(
+                0 5%,
+                5% 0,
+                95% 0,
+                100% 5%,
+                100% 95%,
+                95% 100%,
+                5% 100%,
+                0 98%,
+                0 5%
+            );
+        transition: 1s;
+    }
+}
+
+/* .ContentBeautyBox {
+    
+} */
+
+/* */
+/* */
+/* ➕ Data ➕ */
+/* */
+/* */
+
+.SchijfInfo {
+    color:rgb(63, 63, 63);
+    text-align: center;
+}
+
+.Data {
+    width:48%;height:100%;
+    margin-right: 0.4rem;
+}
+.Data form {
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+}
+
+textarea {
+    text-align:center;
+    min-width: 100%;max-width: 100%;
+    min-height: 6rem;max-height: 175px;
+}
+#StuurKnop {
+    margin-top:1rem;
+    max-width: 50%;
+}
+
+/* */
+/* */
+/* ❌ Data ❌ */
+/* */
+
+/* */
+/* */
+/* ➕ Draaischijf ➕ */
+/* */
+/* */
+
+.DraaiGebied {
+    width:48%;
+    height: 20;
+    position: relative;
+}
+#Schijf, #Hoes {
+    width:100%;
+}
+#Schijf:hover, #Hoes:hover {
+    cursor:pointer;
+}
+#Schijf {
+    position: relative;
+    z-index: 1;
+    top:0rem;
+    right:0rem;
+    bottom:0rem;
+    left:0rem;
+}
+#Hoes {
+    top: 0rem;
+    left: 0rem;
+    position: absolute;
+    z-index: 2;
+}
+
+@keyframes ToOrange {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(120deg);
+    }
+    
+}
+@keyframes ToRed {
+    from {
+        transform: rotate(120deg);
+    }
+    to {
+        transform: rotate(240deg);
+    }
+    
+}
+@keyframes ToGreen {
+    from {
+        transform: rotate(240deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+    
+}
+
+
+
+/* #SchijfZelf {
+    position: relative;
+    top:0rem;
+    right:0rem;
+    bottom:0rem;
+    left:0rem;
+    animation-name: example;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+#SchijfHoes {
+    position: absolute;
+    top:20rem;
+    right:0rem;
+    bottom:0rem;
+    left:11.5rem;
+    width:40%;
+}
+
+
+.DraaiSchijf {
+    background-color:rgba(0, 0, 255, 0.247);
+    display: flex;
+    justify-content: center;
+    width:fit-content;
+}
+
+.DraaiSchijf img {
+    width:80%;
+}
+
+@keyframes example {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+} */
+
+/* */
+/* */
+/* ❌ Draaischijf ❌ */
+/* */
+/* */
+
+/* */
+/* */
+/* ❌ Content ❌ */
+/* */
+/* */
