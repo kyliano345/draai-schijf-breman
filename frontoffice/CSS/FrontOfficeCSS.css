@@ -383,6 +383,12 @@ textarea {
 #StuurKnop {
     margin-top:1rem;
     max-width: 50%;
+    background-color: #ffffff;
+    transition:0.4s;
+}
+#StuurKnop:hover {
+    background-color: #186dbc;
+    transition:0.4s;
 }
 
 /* */
