@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="login/css/InlogCSS.css">
-        <title>Breman - Login</title>
-        <link rel="icon" href="login/assets/img/icon.png" type="image/x-icon">
-        <script src="login/JS/InlogJS.js"></script>
+        <link rel="stylesheet" href="registeren/css/RegisterenCSS.css">
+        <title>Breman - Registeren</title>
+        <link rel="icon" href="registeren/assets/img/icon.png" type="image/x-icon">
+        <script src="registeren/JS/RegisterenJS.js"></script>
         <meta charset="UTF-8">
     </head>
     <body>
@@ -14,7 +14,7 @@
                     <div class="HL2">
                         <div class="HB1"></div>
                         <div class="HB2">
-                            <img src="login/assets/img/logo.png">
+                            <img src="registeren/assets/img/logo.png">
                         </div>
                     </div>
                 </div>
@@ -26,10 +26,11 @@
 
         <div class="contentsection">
             <div id="inlog01">
-                <p>Welkom op de login pagina. Login in om naar je omgeving te gaan.</p>
+                <p>Welkom op de registratie pagina. Maar hier je BackOffice account aan.</p>
                 <input placeholder="Naam" type="text" name="naam" />
+                <input placeholder="E-mailadres" type="e-mail" name="e-mailadres" />
                 <input placeholder="Wachtwoord" type="password" name="password" />
-                <input type="submit" name="inloggen" value="Inloggen" id="butnhover"/>
+                <input type="submit" name="inloggen" value="Registeren" id="butnhover"/>
             </div>
         </div>
     </body>
