@@ -1,9 +1,9 @@
 var rotateStatus = 1;
 var rotateWait = false;
+document.cookie = "DS-Color" + "=" + 1 + ";" + "max-age=" + 900;
 
 function draaiDeSchijf() {
 
-    // confirm('Weet je zeker dat je de blog wilt verwijderen?');
     if (rotateWait == true) {
         return;
     }
@@ -15,26 +15,28 @@ function draaiDeSchijf() {
         document.getElementById('Schijf').style.animation = "ToGreen 1s";
         document.getElementById('Schijf').style.transform = "rotate(0deg)";
         changeInfoColor(1);
+        storage(1);
     }
-
-
     if (rotateStatus == 1) {
         rotateStatus = 2;
         document.getElementById('Schijf').style.animation = "ToOrange 1s";
         document.getElementById('Schijf').style.transform = "rotate(120deg)";
         changeData(2);
+        storage(2);
     }
     else if (rotateStatus == 2) {
         rotateStatus = 3;
         document.getElementById('Schijf').style.animation = "ToRed 1s";
         document.getElementById('Schijf').style.transform = "rotate(240deg)";
         changeData(3);
+        storage(3);
     }
     else if (rotateStatus == 3) {
         rotateStatus = 1;
         document.getElementById('Schijf').style.animation = "ToGreen 1s";
         document.getElementById('Schijf').style.transform = "rotate(0deg)";
         changeData(1);
+        storage(1);
     }
 
 }
@@ -42,6 +44,7 @@ function draaiDeSchijf() {
 function resetWait() {
     rotateWait = false;
 }
+
 function changeData(color) {
     if (color == 1) {
         document.getElementById('GreenINFOtext').style.color = "lime";
@@ -62,7 +65,7 @@ function changeData(color) {
         document.getElementById('probleeminfo').placeholder = "Waar kunnen we u mee helpen?";
     }
 }
-// document.getElementById('probleeminfo').placeholder = "red";
 
-// textarea
-// placeholder
+function storage(color) {
+    document.cookie = "DS-Color" + "=" + color + ";" + "max-age=" + 900; //10 min
+}

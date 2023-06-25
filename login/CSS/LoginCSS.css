@@ -151,10 +151,13 @@ body {
     min-height:20rem;
     display:flex;
     justify-content: center;
-    align-items: center;
+}
+.contentmargin {
+    width:100%;
+    height:2rem;
 }
 
-#inlog01 {
+.registersection {
     border:solid 3px;
     border-color: rgb(148, 148, 148);
     background-color: rgba(255, 255, 255, 0.750);
@@ -163,6 +166,12 @@ body {
     padding: 2px;
     width: 30rem;
     min-height: 10rem;height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.registersection form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -188,6 +197,28 @@ input {
     font-weight: bold;
     text-align: center;
     padding:1rem;
+}
+.switchregisterbutton {
+    min-width:80px;
+    width:fit-content;
+    height:20px;
+    background-color: white;
+    border:2px solid black;
+    margin-bottom:1rem;
+    font-size: 0.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.8s;
+}
+.switchregisterbutton:hover {
+    cursor: pointer;
+    background-color: green;
+    transition: 0.8s;
+}
+.switchregisterbutton p {
+    margin:0rem 0.25rem;
+    padding: 0rem;
 }
 /* */
 /* */

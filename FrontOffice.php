@@ -1,21 +1,59 @@
 <?php 
-    //require_once('PHP/??.php');
+    require_once ',DevFiles/dataCon.php';
 
-    // HIER DATABASE OPHALEN
+    session_start();
 
-    // HIER DATABASE FUNCTIONS MAKEN ZODRA ER OP DE KNOP (met id: StuurKnop) WORDT GEKLIKT
+    if (!isset($_SESSION['LIUK'])) {
+        if (isset($_SESSION['LIUB'])) {
+            header("Location: http://localhost/.projects/Github/draai-schijf-breman/BackOffice.php");
+        }
+        else {
+            header("Location: http://localhost/.projects/Github/draai-schijf-breman/LoginKlant.php");
+        }
+    }
+    else if (isset($_SESSION['LIUK'])) {
+        if (isset($_SESSION['LIUB'])) {
+            
+            header("Location: http://localhost/.projects/Github/draai-schijf-breman/LoginBehandelaar.php");
+            unset($_SESSION['LIUK']);
+            unset($_SESSION['LIUB']);
 
+        }
+    }
+    
 
+    if (isset($_POST['logout-button'])) {
+        unset($_SESSION['LIUK']);
+        unset($_SESSION['LIUB']);
+        header("Location: http://localhost/.projects/Github/draai-schijf-breman/LoginKlant.php");
+    }
+?>
 
-    // =======================
-    // Zoiets:
-    // $textvariable; // = $_POST["probleeminfo"];
+<?php 
 
+    if(isset($_POST["StuurKnop"])) {
+        
+        $casecolor = $_COOKIE["DS-Color"];
+        $casemessage = $_POST["probleeminfo"];
+        $LIUK = $_SESSION['LIUK'];
+        
+        $date = new DateTime("now");
+        $dateformat = '%d-%m-%Y';
+        $timeformat = '%H:%M:%S';
+        $casedate = strftime($dateformat, $date->getTimestamp());
+        $casetime = strftime($timeformat, $date->getTimestamp());
 
+        $newcasequery = array("INSERT INTO melding (melding_color, melding_K_id, melding_date, melding_time, melding_message) VALUES ('",
+        $casecolor, "','",
+        $LIUK, "','",
+        $casedate, "','",
+        $casetime, "','",
+        $casemessage, "'", ");");
+        $newcasesql = implode("", $newcasequery);
+        // echo $newcasesql;
+        mysqli_query($conn, $newcasesql);
+    };    
 
-    // INSERT INTO meldingen (user_id, notificationtext)
-    // VALUES ($_SESSION["loggedInUserId"], $textvariable);
-    // =======================
 ?>
 
 <!DOCTYPE html>
@@ -35,9 +73,17 @@
                     <div class="HB2">
                         <img src="frontoffice/assets/logo.png" loading="lazy">
                         <div id="loginincontent">
-                            <p id="loggeduser">Welkom <u>Erik</u></p> 
-                            <!-- SELECT gebruikersnaam FROM gebruikers WHERE user_id == $_SESSION["loggedInUserId"] -->
-                            <div id="uitlogknop"><p>Uitloggen</p></div>
+                            <?php
+                                $LIU = $_SESSION['LIUK'];
+                                $accountquery = array("SELECT voornaam FROM klant WHERE klant_id=", $LIU, ";");
+                                $accountsql = implode("", $accountquery);
+                                $accountresult = mysqli_query($conn, $accountsql);
+                                $accountrow = mysqli_fetch_assoc($accountresult);
+                            ?>
+                            <p id="loggeduser">Welkom&nbsp<u><?php echo $accountrow['voornaam']; ?></u></p> 
+                            <form method="post">
+                                <input type="submit" id="uitlogknop" name="logout-button" value="Uitloggen"/>
+                            </form>
                         </div>
                     </div>
                     <div class="HB3"></div>
@@ -46,19 +92,18 @@
         </div>
         <div class="ContentSection">
             <div class="MaxContentArea">
-
                 <div class="BeautyBox">
-                        <div class= "DraaiGebied">
+                    <div class= "DraaiGebied">
                         <img id="Schijf" src="frontoffice/assets/draaischijf.png" onclick="draaiDeSchijf()" loading="lazy">
                         <img id="Hoes" src="frontoffice/assets/Schijfhoes.png" onclick="draaiDeSchijf()" loading="lazy">
                     </div>
                     <div class="Data">
-                        <form>
+                        <form method="POST">
                             <p class="SchijfInfo">
                                 Welkom op deze pagina. Hier kunt u uw melding of compliment achterlaten voor Breman. Draai aan de draaischijf om het kritiek aan te geven.<br><br><span style="color:lime;">Groen:</span> <span id="GreenINFOtext" style="color:lime;">Een compliment of opmerking</span>
-                                <br><span style="color:gold;">Oranje:</span> <span id="OrangeINFOtext">De situatie vereist spoedig behandeling </span><br><span style="color:red;">Rood:</span> <span id="RedINFOtext">De situatie is kritiek
+                                <br><span style="color:gold;">Oranje:</span> <span id="OrangeINFOtext">De situatie vereist behandeling </span><br><span style="color:red;">Rood:</span> <span id="RedINFOtext">De situatie is kritiek
                             </p>
-                            <textarea name="probleeminfo" id="probleeminfo" placeholder="Draai aan de draaischijf om uw situatie te selecteren"></textarea>
+                            <textarea name="probleeminfo" id="probleeminfo" placeholder="Draai aan de draaischijf om uw situatie te selecteren" maxlength="400"></textarea>
                             <input type="submit" id="StuurKnop" name="StuurKnop" value="Stuur" class="StuurKnop" onclick="return confirm('Weet je zeker dat je dit bericht wilt versturen?');">
                         </form>
                     </div>
